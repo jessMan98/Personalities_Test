@@ -4,8 +4,13 @@
 sum_elements([], 0).
 sum_elements([X|Xs], S):- sum_elements(Xs, S2), S is S2 + X.
 
+% Numero mayor
+mayor_que(X,Y,N) :- X > Y, N is X; X < Y, N is Y.
+
 % Respuestas.
+escoge :- writeln('Totalmente de acuerdo (td), Un poco (up), Neutral (n), No realmente (nr), No estoy de acuerdo (nd)').
 respuesta(X) :- member(X,[td,up,n,nr,nd]).
+
 
 % Rango de las respuestas
 rango(3,td).
@@ -14,23 +19,48 @@ rango(1,n).
 rango(0,nr).
 rango(0,nd).
 
-check(S) :- S is 16.
-check(S) :- S is 8.
-check(S) :- S > 8 , S < 16. 
-check(S) :- S is 4.
- 
-% Preguntas introversion
-intro_question:- 
-    writeln('Evito las multitudes y busco la tranquilidad.'),
-    read(A),respuesta(A), rango(X,A),
-    writeln('Prefiero pequeñas reuniones con amigos cercanos.'),
-    read(B),respuesta(B), rango(Y,B),
-    write('Estar sólo me recarga las pilas.'),
-    read(C),respuesta(C), rango(W,C),
-    write('Ensaya las cosas antes de decirlas; a menudo contesta con "lo tendrá que pensar o le contesto más tarde"'),
-    read(D),respuesta(D), rango(Z,D),
-    L=[X,Y,W,Z], sum_elements(L,SUMA).
+% checa el rango de las respuestas
+check(S) :- S =< 12 , S >= 8,!. 
+check(S) :- S < 8.
 
+% resultado de tipologia
+
+
+
+% Preguntas introversion y extroversion
+intro_extro_questions:- 
+    
+    % introversion
+    writeln('Evito las multitudes y busco la tranquilidad.'),
+    escoge, 
+    read(AI),respuesta(AI), rango(WI,AI), nl, 
+    writeln('Prefiero pequeñas reuniones con amigos cercanos.'),
+    escoge,
+    read(BI),respuesta(BI), rango(XI,BI), nl, 
+    writeln('Estar sólo me recarga las pilas.'),
+    escoge, 
+    read(CI),respuesta(CI), rango(YI,CI), nl,
+    writeln('Ensaya las cosas antes de decirlas; a menudo contesta con "lo tendrá que pensar o le contesto más tarde"'),
+    escoge, 
+    read(DI),respuesta(DI), rango(ZI,DI), nl,
+    L=[WI,XI,YI,ZI], sum_elements(L,SUMA), check(SUMA),
+   
+    % extroversion
+    writeln('Me distraigo con facilidad, sin mucha concentración en una única tarea.'),
+    escoge, 
+    read(AE), respuesta(AE), rango(WE,AE), nl, 
+    writeln('Me gusta ser el centro de atención.'),
+    escoge,
+    read(BE), respuesta(BE), rango(XE,BE), nl,
+    writeln('Me junto con gente con facilidad y participo en muchas actividades.'),
+    escoge,
+    read(CE), respuesta(CE), rango(YE,CE), nl,
+    writeln('Le gusta ir a reuniones y tiende a manifestar su opinion.'),
+    escoge,
+    read(DE), respuesta(DE), rango(ZE,DE), nl,
+   
+    L2 = [WE,XE,YE,ZE], sum_elements(L2,SUMA2), check(SUMA2),
+    mayor_que(SUMA,SUMA2, Res), write(Res).
 
 % Dimensiones dicotomicas
 fuente_energia(extroversion(e,pregunta(A)), introversion(i)). %retorna true
@@ -41,16 +71,7 @@ estilo_vida(perceptivos(p), jueces(j)).
 % respuestas
 imprimir(Lista) :- Lista = [H|C], write(H), nl, imprimir(C).
 
-extro_question(R):-
-    writeln('Me distraigo con facilidad, sin mucha concentración en una única tarea.'),
-    respuesta(R),
-    writeln('Me gusta ser el centro de atención.'),
-    respuesta(R).
-
-i_e(R):- intro_question(R), extro_question(R).
-
 main :-
     writeln('Bienvenido al test de personalidad MBTI'),nl,
     writeln("Contesta las siguientes preguntas, se honesto con tus respuestas, evita responder a todo neutral"),
-    nl,
-    i_e(R).
+    nl.
