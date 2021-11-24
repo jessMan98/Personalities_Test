@@ -41,8 +41,6 @@ estilo_vida(perceptivos(p), jueces(j)).
 % respuestas
 imprimir(Lista) :- Lista = [H|C], write(H), nl, imprimir(C).
 
-
-
 extro_question(R):-
     writeln('Me distraigo con facilidad, sin mucha concentración en una única tarea.'),
     respuesta(R),
