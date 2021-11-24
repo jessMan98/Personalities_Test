@@ -8,9 +8,8 @@ sum_elements([X|Xs], S):- sum_elements(Xs, S2), S is S2 + X.
 mayor_que(X,Y,N) :- X > Y, N is X; X < Y, N is Y.
 
 % Respuestas.
-escoge :- writeln('Totalmente de acuerdo (td), Un poco (up), Neutral (n), No realmente (nr), No estoy de acuerdo (nd)').
+escoge :- writeln('    Totalmente de acuerdo (td), Un poco (up), Neutral (n), No realmente (nr), No estoy de acuerdo (nd)').
 respuesta(X) :- member(X,[td,up,n,nr,nd]).
-
 
 % Rango de las respuestas
 rango(3,td).
@@ -24,8 +23,7 @@ check(S) :- S =< 12 , S >= 8,!.
 check(S) :- S < 8.
 
 % resultado de tipologia
-
-
+% se agrega el predicado asserta(tipologia(N, i)) para saber cual es.
 
 % Preguntas introversion y extroversion
 intro_extro_questions:- 
@@ -43,7 +41,9 @@ intro_extro_questions:-
     writeln('Ensaya las cosas antes de decirlas; a menudo contesta con "lo tendrá que pensar o le contesto más tarde"'),
     escoge, 
     read(DI),respuesta(DI), rango(ZI,DI), nl,
+    
     L=[WI,XI,YI,ZI], sum_elements(L,SUMA), check(SUMA),
+    asserta(tipologia(SUMA, i)),
    
     % extroversion
     writeln('Me distraigo con facilidad, sin mucha concentración en una única tarea.'),
@@ -58,9 +58,11 @@ intro_extro_questions:-
     writeln('Le gusta ir a reuniones y tiende a manifestar su opinion.'),
     escoge,
     read(DE), respuesta(DE), rango(ZE,DE), nl,
-   
+    
     L2 = [WE,XE,YE,ZE], sum_elements(L2,SUMA2), check(SUMA2),
-    mayor_que(SUMA,SUMA2, Res), write(Res).
+    asserta(tipologia(SUMA2, e)), mayor_que(SUMA,SUMA2, Res), 
+
+    tipologia(Res, T), S = T, writeln(S).
 
 % Dimensiones dicotomicas
 fuente_energia(extroversion(e,pregunta(A)), introversion(i)). %retorna true
@@ -74,4 +76,5 @@ imprimir(Lista) :- Lista = [H|C], write(H), nl, imprimir(C).
 main :-
     writeln('Bienvenido al test de personalidad MBTI'),nl,
     writeln("Contesta las siguientes preguntas, se honesto con tus respuestas, evita responder a todo neutral"),
-    nl.
+    nl,
+    intro_extro_questions.
