@@ -27,7 +27,7 @@ check(S) :- S < 8.
 
 % Preguntas introversion y extroversion
 intro_extro_questions:- 
-    
+   
     % introversion
     writeln('Evito las multitudes y busco la tranquilidad.'),
     escoge, 
@@ -42,7 +42,7 @@ intro_extro_questions:-
     escoge, 
     read(DI),respuesta(DI), rango(ZI,DI), nl,
     
-    L=[WI,XI,YI,ZI], sum_elements(L,SUMA), check(SUMA),
+    LI = [WI,XI,YI,ZI], sum_elements(LI,SUMA), check(SUMA),
     asserta(tipologia(SUMA, i)),
    
     % extroversion
@@ -59,10 +59,127 @@ intro_extro_questions:-
     escoge,
     read(DE), respuesta(DE), rango(ZE,DE), nl,
     
-    L2 = [WE,XE,YE,ZE], sum_elements(L2,SUMA2), check(SUMA2),
+    LE = [WE,XE,YE,ZE], sum_elements(LE,SUMA2), check(SUMA2),
     asserta(tipologia(SUMA2, e)), mayor_que(SUMA,SUMA2, Res), 
 
     tipologia(Res, T), S = T, writeln(S).
+
+
+sen_int_questions:-
+    
+    % sensorial
+    writeln('Valoro el realismo y el sentido común.'),
+    escoge,
+    read(AS), respuesta(AS), rango(WS,AS), nl, 
+    writeln('Tiendo a ser concreto y literal; A dar descripciones detalladas.'),
+    escoge,
+    read(BS), respuesta(BS), rango(XS,BS), nl, 
+    writeln('Prefiere resultados con hechos y numeros que con ideas y teorias'),
+    escoge,
+    read(CS), respuesta(CS), rango(YS,CS), nl, 
+    writeln('Confío en las experiencias pasadas.'),
+    escoge,
+    read(DS), respuesta(DS), rango(ZS,DS), nl, 
+
+    LS = [WS,XS,YS,ZS], sum_elements(LS,SUMA3), check(SUMA3),
+    asserta(tipologia(SUMA3, s)),
+
+    % intuitivo
+    writeln('Confío en las corazonadas.'),
+    escoge,
+    read(AN), respuesta(AN), rango(WN,AN), nl, 
+    writeln('Valoro la imaginación y la innovación.'),
+    escoge,
+    read(BN), respuesta(BN), rango(XN,BN), nl, 
+    writeln('Encuentra el futuro y sus posibilidades interesantes, más que atemorizantes; generalmente le atrae mas a donde va que donde esta.'),
+    escoge,
+    read(CN), respuesta(CN), rango(YN,CN), nl, 
+    writeln('Le interesa saber como funcionan las cosas solo por placer.'),
+    escoge,
+    read(DN), respuesta(DN), rango(ZN,DN), nl, 
+
+    LN = [WN,XN,YN,ZN], sum_elements(LN,SUMA4), check(SUMA4),
+    asserta(tipologia(SUMA4,n)), mayor_que(SUMA3,SUMA4, Rsn),
+
+    tipologia(Rsn, T), S = T, writeln(S).
+
+rac_sen_questions :-
+
+    % racionalista
+    writeln('Anoto los pros y contras de cada opción.'),
+    escoge,
+    read(AR), respuesta(AR), rango(WR,AR), nl, 
+    writeln('Suelo poner en duda los razonamientos de otros, porque podrían estar equivocados.'),
+    escoge,
+    read(BR), respuesta(BR), rango(XR,BR), nl, 
+    writeln('Tiende a dar mas crédito a cosas que son logicas y cientificas.'),
+    escoge,
+    read(CR), respuesta(CR), rango(YR,CR), nl, 
+    writeln('Recuerda los numeros y cifras mas facilmente que las caras y los nombres.'),
+    escoge,
+    read(DR), respuesta(DR), rango(ZR,DR), nl, 
+
+    LR = [WR,XR,YR,ZR], sum_elements(LR,SUMA5), check(SUMA5),
+    asserta(tipologia(SUMA5,r)),
+
+    % sentimental
+    writeln('Trato con la gente con compasión, según se requiera.'),
+    escoge,
+    read(ASE), respuesta(ASE), rango(WSE,ASE), nl, 
+    writeln('Aprecio que me pregunten a menudo por mi estado emocional.'),
+    escoge,
+    read(BSE), respuesta(BSE), rango(XSE,BSE), nl, 
+    writeln('Se pone en el lugar de los demas; Ud. es quien en una reunión probablemente pregunta como afectara esto a la gente involucrada.'),
+    escoge,
+    read(CSE), respuesta(CSE), rango(YSE,CSE), nl, 
+    writeln('Disfruta prestando servicios necesarios a la gente aunque algunos se aprovechen de Ud.'),
+    escoge,
+    read(DSE), respuesta(DSE), rango(ZSE,DSE), nl,
+
+    LSE = [WSE,XSE,YSE,ZSE], sum_elements(LSE, SUMA6), check(SUMA6),
+    asserta(tipologia(SUMA6,f)), mayor_que(SUMA5,SUMA6, Rrf),
+
+    tipologia(Rrf, T), S = T, writeln(S).
+
+
+pe_ju_questions :- 
+    
+    % perceptivos
+    writeln('Disfruto al empezar las cosas.'),
+    escoge,
+    read(AP), respuesta(AP), rango(WP,AP), nl, 
+    writeln('Me gustan las sorpresas y adaptarme a cambios de última hora.'),
+    escoge,
+    read(BP), respuesta(BP), rango(XP,BP), nl, 
+    writeln('Ignoro las listas de cosas pendientes, si es que alguna vez he hecho alguna.'),
+    escoge,
+    read(CP), respuesta(CP), rango(YP,CP), nl, 
+    writeln('Adora explorar lo desconocido, aun cuando sea algo tan simple como el camino del trabajo a casa.'),
+    escoge,
+    read(DP), respuesta(DP), rango(ZP,DP), nl, 
+    
+    LP = [WP,XP,YP,ZP], sum_elements(LP,SUMA6), check(SUMA6),
+    asserta(tipologia(SUMA6,p)),
+
+    % jueces
+    writeln('Prefiero que mi vida esté determinada siguiendo un rumbo más o menos prefijado, imponiendo mi fuerza de voluntad en ella.'),
+    escoge,
+    read(AJ), respuesta(AJ), rango(WJ,AJ), nl, 
+    writeln('No me gustan las sorpresas, prefiero tener advertencias anticipadas.'),
+    escoge,
+    read(BJ), respuesta(BJ), rango(XJ,BJ), nl, 
+    writeln('Tiene un lugar para cada cosa y no se siente satisfecho hasta que cada cosa esta en su sitio.'),
+    escoge,
+    read(CJ), respuesta(CJ), rango(YJ,CJ), nl, 
+    writeln('Siempre tiene que esperar a los otros, quienes nunca parecen ser puntuales'),
+    escoge,
+    read(DJ), respuesta(DJ), rango(ZJ,DJ), nl,
+
+    LJ = [WJ,XJ,YJ,ZJ], sum_elements(LJ,SUMA7), check(SUMA7),
+    asserta(tipologia(SUMA7,j)), mayor_que(SUMA6,SUMA7, Rpj),
+
+    tipologia(Rpj, T), S = T, writeln(S).
+
 
 % Dimensiones dicotomicas
 fuente_energia(extroversion(e,pregunta(A)), introversion(i)). %retorna true
@@ -77,4 +194,4 @@ main :-
     writeln('Bienvenido al test de personalidad MBTI'),nl,
     writeln("Contesta las siguientes preguntas, se honesto con tus respuestas, evita responder a todo neutral"),
     nl,
-    intro_extro_questions.
+    intro_extro_questions, sen_int_questions, rac_sen_questions, pe_ju_questions.
