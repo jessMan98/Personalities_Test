@@ -25,6 +25,7 @@ check(S) :- S < 8.
 % resultado de tipologia
 % se agrega el predicado asserta(tipologia(N, i)) para saber cual es.
 
+
 % Preguntas introversion y extroversion
 intro_extro_questions:- 
    
@@ -62,7 +63,7 @@ intro_extro_questions:-
     LE = [WE,XE,YE,ZE], sum_elements(LE,SUMA2), check(SUMA2),
     asserta(tipologia(SUMA2, e)), mayor_que(SUMA,SUMA2, Res), 
 
-    tipologia(Res, T), S = T, writeln(S).
+    tipologia(Res, T), assertz(letra(T)).
 
 
 sen_int_questions:-
@@ -101,7 +102,7 @@ sen_int_questions:-
     LN = [WN,XN,YN,ZN], sum_elements(LN,SUMA4), check(SUMA4),
     asserta(tipologia(SUMA4,n)), mayor_que(SUMA3,SUMA4, Rsn),
 
-    tipologia(Rsn, T), S = T, writeln(S).
+    tipologia(Rsn, T), assertz(letra(T)).
 
 rac_sen_questions :-
 
@@ -139,7 +140,7 @@ rac_sen_questions :-
     LSE = [WSE,XSE,YSE,ZSE], sum_elements(LSE, SUMA6), check(SUMA6),
     asserta(tipologia(SUMA6,f)), mayor_que(SUMA5,SUMA6, Rrf),
 
-    tipologia(Rrf, T), S = T, writeln(S).
+    tipologia(Rrf, T), assertz(letra(T)).
 
 
 pe_ju_questions :- 
@@ -178,7 +179,12 @@ pe_ju_questions :-
     LJ = [WJ,XJ,YJ,ZJ], sum_elements(LJ,SUMA7), check(SUMA7),
     asserta(tipologia(SUMA7,j)), mayor_que(SUMA6,SUMA7, Rpj),
 
-    tipologia(Rpj, T), S = T, writeln(S).
+    tipologia(Rpj, T), assertz(letra(T)).
+
+
+% Personalidad
+personalidad :- letra(i),letra(n),letra(f),letra(j), 
+            writeln('Usted es un INFJ').
 
 
 % Dimensiones dicotomicas
@@ -194,4 +200,6 @@ main :-
     writeln('Bienvenido al test de personalidad MBTI'),nl,
     writeln("Contesta las siguientes preguntas, se honesto con tus respuestas, evita responder a todo neutral"),
     nl,
-    intro_extro_questions, sen_int_questions, rac_sen_questions, pe_ju_questions.
+    intro_extro_questions, sen_int_questions, rac_sen_questions, pe_ju_questions, personalidad.
+    
+    
