@@ -23,7 +23,6 @@ check(S) :- S =< 12.
 
 % resultado de tipologia: se agrega el predicado asserta(tipologia(N, i)) para saber cual es.
 
-
 % Preguntas introversion y extroversion
 intro_extro_questions:- 
     
@@ -211,61 +210,66 @@ pe_ju_questions :-
         tipologia(Rpj, T), assertz(letra(T)), writeln(T).
 
 % Grupos de personalidad
-analistas :- ( letra(i),letra(n),letra(t),letra(j) ; letra(i),letra(n),letra(t),letra(p) ) ;
-             ( letra(e),letra(n),letra(t),letra(j) ; letra(e),letra(n),letra(t),letra(p) ) ,
-             
+analistas :- ( ( letra(i),letra(n),letra(t),letra(j) ; letra(i),letra(n),letra(t),letra(p) ) ; ( letra(e),letra(n),letra(t),letra(j) ; letra(e),letra(n),letra(t),letra(p) ) ),
              (writeln('Los ANALISTAS')).
 
+diplomaticos :- ( ( letra(i),letra(n),letra(f),letra(j) ; letra(i),letra(n),letra(f),letra(p) ) ; ( letra(e),letra(n),letra(f),letra(j) ; letra(e),letra(n),letra(f),letra(p) ) ),
+             (writeln('Los Diplomaticos')).
+
+centinelas :- ( ( letra(i),letra(s),letra(t),letra(j) ; letra(i),letra(s),letra(f),letra(j) ) ; ( letra(e),letra(s),letra(t),letra(j) ; letra(e),letra(s),letra(f),letra(f) ) ),
+             (writeln('Los Centinelas')).
+
+exploradores :- ( ( letra(i),letra(s),letra(t),letra(p) ; letra(i),letra(s),letra(f),letra(p) ) ; ( letra(e),letra(s),letra(t),letra(p) ; letra(e),letra(s),letra(f),letra(p) ) ),
+             (writeln('Los Exploradores')).
 
 % 16 Personalidades
 personalidad :- letra(i),letra(n),letra(t),letra(j) , analistas,
-                writeln('Usted es un(a) INTJ').
+                writeln('Usted es un(a) INTJ(Arquitecto)').
 
-personalidad :- letra(i),letra(n),letra(t),letra(p),
-                writeln('Usted es un(a) INTP').
+personalidad :- letra(i),letra(n),letra(t),letra(p), analistas,
+                writeln('Usted es un(a) INTP(Logico)').
 
-personalidad :- letra(e),letra(n),letra(t),letra(j),
-                writeln('Usted es un(a) ENTJ'),!.
+personalidad :- letra(e),letra(n),letra(t),letra(j), analistas,
+                writeln('Usted es un(a) ENTJ(Comandante)'),!.
 
-personalidad :- letra(e),letra(n),letra(t),letra(p),
-                writeln('Usted es un(a) ENTP'),!.
+personalidad :- letra(e),letra(n),letra(t),letra(p), analistas,
+                writeln('Usted es un(a) ENTP(Innovador)'),!.
 
-personalidad :- letra(i),letra(n),letra(f),letra(j), 
-                writeln('Usted es un(a) INFJ'),!.
+personalidad :- letra(i),letra(n),letra(f),letra(j), diplomaticos,
+                writeln('Usted es un(a) INFJ(Abogado)'),!.
 
-personalidad :- letra(i),letra(n),letra(f),letra(p),
-                writeln('Usted es un(a) INFP'),!.
+personalidad :- letra(i),letra(n),letra(f),letra(p), diplomaticos,
+                writeln('Usted es un(a) INFP(Mediador)'),!.
 
-personalidad :- letra(e),letra(n),letra(f),letra(j), 
-                writeln('Usted es un(a) ENFJ'),!.
+personalidad :- letra(e),letra(n),letra(f),letra(j), diplomaticos,
+                writeln('Usted es un(a) ENFJ(Protagonista)'),!.
 
-personalidad :- letra(e),letra(n),letra(f),letra(p), 
-                writeln('Usted es un(a) ENFP'),!.
+personalidad :- letra(e),letra(n),letra(f),letra(p), diplomaticos,
+                writeln('Usted es un(a) ENFP(Activista)'),!.
 
-personalidad :- letra(i),letra(s),letra(t),letra(j), 
-                writeln('Usted es un(a) ISTJ'),!.
+personalidad :- letra(i),letra(s),letra(t),letra(j), centinelas,
+                writeln('Usted es un(a) ISTJ(Logistica)'),!.
 
-personalidad :- letra(i),letra(s),letra(f),letra(j), 
-                writeln('Usted es un(a) ISFJ'),!.
+personalidad :- letra(i),letra(s),letra(f),letra(j), centinelas,
+                writeln('Usted es un(a) ISFJ(Defensor)'),!.
 
-personalidad :- letra(e),letra(s),letra(t),letra(j), 
-                writeln('Usted es un(a) ESTJ'),!.
+personalidad :- letra(e),letra(s),letra(t),letra(j), centinelas,
+                writeln('Usted es un(a) ESTJ(Ejecutivo)'),!.
 
-personalidad :- letra(e),letra(s),letra(f),letra(j), 
-                writeln('Usted es un(a) ESFJ'),!.
+personalidad :- letra(e),letra(s),letra(f),letra(j), centinelas,
+                writeln('Usted es un(a) ESFJ(Cónsul)'),!.
 
-personalidad :- letra(i),letra(s),letra(t),letra(p), 
-                writeln('Usted es un(a) ISTP'),!.
+personalidad :- letra(i),letra(s),letra(t),letra(p), exploradores,
+                writeln('Usted es un(a) ISTP(Virtuoso)'),!.
 
-personalidad :- letra(i),letra(s),letra(f),letra(p), 
-                writeln('Usted es un(a) ISFP'),!.
+personalidad :- letra(i),letra(s),letra(f),letra(p), exploradores,
+                writeln('Usted es un(a) ISFP(Aventurero)'),!.
 
-personalidad :- letra(e),letra(s),letra(t),letra(p), 
+personalidad :- letra(e),letra(s),letra(t),letra(p), exploradores,
+                writeln('Usted es un(a) ESTP(Emprendedor)'),!.
 
-                writeln('Usted es un(a) ESTP'),!.
-
-personalidad :- letra(e),letra(s),letra(f),letra(p), 
-                writeln('Usted es un(a) ESFP'),!.
+personalidad :- letra(e),letra(s),letra(f),letra(p), exploradores,
+                writeln('Usted es un(a) ESFP(Animador)'),!.
 
 
 imprimir(Lista) :- Lista = [H|C], write(H), nl, imprimir(C).
