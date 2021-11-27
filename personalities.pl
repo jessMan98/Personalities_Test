@@ -302,27 +302,31 @@ personalidad :- letra(e),letra(s),letra(t),letra(j), nl, centinelas, nl,
 personalidad :- letra(e),letra(s),letra(f),letra(j), nl, centinelas, nl,
                 writeln('Usted es un(a) ESFJ(Cónsul)'), nl,
                 writeln('Descripción: Personas extraordinariamente consideradas, sociables y ppopulares, siempre en busca de ayudar...'), nl,
-                writeln('Cónsul Famosos:'), nl,
+                writeln('Cónsules Famosos: Bill Clinton, Taylor Swift, Steve Harvey'), nl,
                 writeln('Solo el 12% de la población tiene esta personalidad.'),!.
 
 personalidad :- letra(i),letra(s),letra(t),letra(p), nl, exploradores, nl,
                 writeln('Usted es un(a) ISTP(Virtuoso)'), nl,
                 writeln('Descripción: Experimentadores audaces y prácticos, maestros en el uso de todo tipo de herramientas...'), nl,
+                writeln('Virtuosos Famosos: Michael Jordan, Clint Eastwood, Tom Cruise'), nl,
                 writeln('Solo el 6% de la población tiene esta personalidad.'),!.
 
 personalidad :- letra(i),letra(s),letra(f),letra(p), nl, exploradores, nl,
                 writeln('Usted es un(a) ISFP(Aventurero)'), nl,
                 writeln('Descripción: Artistas flexibles y encantadores, siempre listos para explorar y experimentar algo nuevo...'), nl,
+                writeln('Aventureros Famosos: Lana del Rey, Frida Kahlo, Michael Jackson'), nl,
                 writeln('Solo el 6% de la población tiene esta personalidad.'),!.
 
 personalidad :- letra(e),letra(s),letra(t),letra(p), nl, exploradores, nl,
                 writeln('Usted es un(a) ESTP(Emprendedor)'), nl,
                 writeln('Descripción: Personas inteligentes, enérgicas y muy perceptivas, que realmente disfrutan vivir al límite...'), nl,
+                writeln('Emprendedores Famosos: Jack Nicholson, Ernest Hemingway, Bruce Willis'), nl,
                 writeln('Solo el 10% de la población tiene esta personalidad.'),!.
 
 personalidad :- letra(e),letra(s),letra(f),letra(p), nl, exploradores, nl,
                 writeln('Usted es un(a) ESFP(Animador)'), nl,
                 writeln('Descripción: Animadores espontáneos, enérgicos y entusiastas. La vida nunca es aburrid a su alrededor...'), nl,
+                writeln('Animadores Famosos: Elton john, Marilin Monroe, Adele'), nl,
                 writeln('Solo el 11% de la población tiene esta personalidad.'),!.
 
 
