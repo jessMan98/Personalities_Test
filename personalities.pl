@@ -220,10 +220,10 @@ pe_ju_questions :-
 % Grupos de personalidad
 
 analistas :- ( ( letra(i),letra(n),letra(t),letra(j) ; letra(i),letra(n),letra(t),letra(p) ) ; ( letra(e),letra(n),letra(t),letra(j) ; letra(e),letra(n),letra(t),letra(p) ) ),
-             (writeln('Perteneces al grupo de los ** ANALISTAS **')).
+             (writeln('Perteneces al grupo de los ** Analistas **')).
 
 diplomaticos :- ( ( letra(i),letra(n),letra(f),letra(j) ; letra(i),letra(n),letra(f),letra(p) ) ; ( letra(e),letra(n),letra(f),letra(j) ; letra(e),letra(n),letra(f),letra(p) ) ),
-             (writeln('Perteneces al grupo de los ** Diplomaticos **')).
+             (writeln('Perteneces al grupo de los ** Diplomáticos **')).
 
 centinelas :- ( ( letra(i),letra(s),letra(t),letra(j) ; letra(i),letra(s),letra(f),letra(j) ) ; ( letra(e),letra(s),letra(t),letra(j) ; letra(e),letra(s),letra(f),letra(f) ) ),
              (writeln('Perteneces al grupo de los ** Centinelas **')).
@@ -240,7 +240,7 @@ personalidad :- letra(i),letra(n),letra(t),letra(j), nl, analistas, nl,
                 writeln('Solo el 1.5% de la población tiene esta personalidad.'), nl,!.
 
 personalidad :- letra(i),letra(n),letra(t),letra(p), nl, analistas, nl,
-                writeln('Usted es un(a) INTP(Logico)'), nl,
+                writeln('Usted es un(a) INTP(Lógico)'), nl,
                 writeln('Descripción: Inventores, innovadores con una sed insaciable de conocimiento...'), nl,
                 writeln('Lógicos Famosos: Bill Gates, Albert Einstein, Isaac Newton'), nl,
                 writeln('Solo el 2.5% de la población tiene esta personalidad.'),!.
@@ -260,7 +260,7 @@ personalidad :- letra(e),letra(n),letra(t),letra(p), nl, analistas, nl,
 personalidad :- letra(i),letra(n),letra(f),letra(j), nl, diplomaticos, nl,
                 writeln('Usted es un(a) INFJ(Abogado)'), nl,
                 writeln('Descripción: Callados y místicos,, que sin embargo son inspiradores e idealistas incansables...'), nl,
-                writeln('Abogados Famosos: Nelson Mandel, Madre Teresa, Martin Luther King'), nl,
+                writeln('Abogados Famosos: Nelson Mandela, Madre Teresa, Martin Luther King'), nl,
                 writeln('Solo el 1% de la población tiene esta personalidad.'),!.
 
 personalidad :- letra(i),letra(n),letra(f),letra(p), nl, diplomaticos, nl,
