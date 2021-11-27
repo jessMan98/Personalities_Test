@@ -73,6 +73,7 @@ intro_extro_questions:-
 
         tipologia(Res, T), assertz(letra(T)).
 
+% Preguntas sensorial intuitivo
 sen_int_questions:-
     
     writeln('**** Forma de percibir el mundo ****'), nl, 
@@ -119,6 +120,7 @@ sen_int_questions:-
 
         tipologia(Rsn, T), assertz(letra(T)).
 
+% Preguntas racional sentimental
 rac_sen_questions :-
     
     writeln('**** Forma de Evaluacion ****'), nl,
@@ -165,6 +167,7 @@ rac_sen_questions :-
 
         tipologia(Rrf, T), assertz(letra(T)).
 
+% Preguntas perceptivo y juez
 pe_ju_questions :- 
     
     writeln('**** Estilo de vida ****'),nl,
