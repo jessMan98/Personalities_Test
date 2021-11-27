@@ -5,7 +5,15 @@ sum_elements([], 0).
 sum_elements([X|Xs], S):- sum_elements(Xs, S2), S is S2 + X.
 
 % Numero mayor
+choose([], []). 
+choose(List, Elt) :- 
+     length(List, Length), 
+     random(0, Length, Index), 
+     nth0(Index, List, Elt).
+
 mayor_que(X,Y,N) :- X > Y, N is X; X < Y, N is Y.
+mayor_que(X,Y,N) :- X == Y, N is X. 
+mayor_que(X,Y,N) :- Y == X, N is Y.
 
 % Respuestas.
 escoge :- writeln('    Totalmente de acuerdo (td), Un poco (up), Neutral (n), No realmente (nr), No estoy de acuerdo (nd)').
@@ -26,7 +34,7 @@ check(S) :- S =< 12.
 % Preguntas introversion y extroversion
 intro_extro_questions:- 
     
-    writeln('Fuente de Energia'),nl,
+    writeln('*** Fuente de Energia ****'),nl,
     
     % introversion
     writeln('Evito las multitudes y busco la tranquilidad.'),
@@ -73,7 +81,7 @@ intro_extro_questions:-
 
 sen_int_questions:-
     
-    writeln('Forma de percibir el mundo'), nl, 
+    writeln('**** Forma de percibir el mundo ****'), nl, 
     
     % sensorial
     writeln('Valoro el realismo y el sentido común.'),
@@ -119,7 +127,7 @@ sen_int_questions:-
 
 rac_sen_questions :-
     
-    writeln('Forma de Evaluacion'), nl,
+    writeln('**** Forma de Evaluacion ****'), nl,
     
     % racionalista
     writeln('Anoto los pros y contras de cada opción.'),
@@ -165,7 +173,7 @@ rac_sen_questions :-
 
 pe_ju_questions :- 
     
-    writeln('Estilo de vida'),nl,
+    writeln('**** Estilo de vida ****'),nl,
     
     % perceptivos
     writeln('Disfruto al empezar las cosas.'),
@@ -210,73 +218,117 @@ pe_ju_questions :-
         tipologia(Rpj, T), assertz(letra(T)), writeln(T).
 
 % Grupos de personalidad
+
 analistas :- ( ( letra(i),letra(n),letra(t),letra(j) ; letra(i),letra(n),letra(t),letra(p) ) ; ( letra(e),letra(n),letra(t),letra(j) ; letra(e),letra(n),letra(t),letra(p) ) ),
-             (writeln('Los ANALISTAS')).
+             (writeln('Perteneces al grupo de los ** ANALISTAS **')).
 
 diplomaticos :- ( ( letra(i),letra(n),letra(f),letra(j) ; letra(i),letra(n),letra(f),letra(p) ) ; ( letra(e),letra(n),letra(f),letra(j) ; letra(e),letra(n),letra(f),letra(p) ) ),
-             (writeln('Los Diplomaticos')).
+             (writeln('Perteneces al grupo de los ** Diplomaticos **')).
 
 centinelas :- ( ( letra(i),letra(s),letra(t),letra(j) ; letra(i),letra(s),letra(f),letra(j) ) ; ( letra(e),letra(s),letra(t),letra(j) ; letra(e),letra(s),letra(f),letra(f) ) ),
-             (writeln('Los Centinelas')).
+             (writeln('Perteneces al grupo de los ** Centinelas **')).
 
 exploradores :- ( ( letra(i),letra(s),letra(t),letra(p) ; letra(i),letra(s),letra(f),letra(p) ) ; ( letra(e),letra(s),letra(t),letra(p) ; letra(e),letra(s),letra(f),letra(p) ) ),
-             (writeln('Los Exploradores')).
+             (writeln('Perteneces al grupo de los ** Exploradores **')).
 
 % 16 Personalidades
-personalidad :- letra(i),letra(n),letra(t),letra(j) , analistas,
-                writeln('Usted es un(a) INTJ(Arquitecto)').
 
-personalidad :- letra(i),letra(n),letra(t),letra(p), analistas,
-                writeln('Usted es un(a) INTP(Logico)').
+personalidad :- letra(i),letra(n),letra(t),letra(j), nl, analistas, nl,
+                writeln(' *** Usted es un(a) INTJ(Arquitecto) ***'), nl,
+                writeln('Descripción: Pensadores, imaginativos y estratégicos, con un plan para todo...'), nl,
+                writeln('Arquitectos Famosos: Friedrich Nietzsche, Michelle Obama, Elon Musk'), nl,
+                writeln('Solo el 1.5% de la población tiene esta personalidad.'), nl,!.
 
-personalidad :- letra(e),letra(n),letra(t),letra(j), analistas,
-                writeln('Usted es un(a) ENTJ(Comandante)'),!.
+personalidad :- letra(i),letra(n),letra(t),letra(p), nl, analistas, nl,
+                writeln('Usted es un(a) INTP(Logico)'), nl,
+                writeln('Descripción: Inventores, innovadores con una sed insaciable de conocimiento...'), nl,
+                writeln('Lógicos Famosos: Bill Gates, Albert Einstein, Isaac Newton'), nl,
+                writeln('Solo el 2.5% de la población tiene esta personalidad.'),!.
 
-personalidad :- letra(e),letra(n),letra(t),letra(p), analistas,
-                writeln('Usted es un(a) ENTP(Innovador)'),!.
+personalidad :- letra(e),letra(n),letra(t),letra(j), nl, analistas, nl,
+                writeln('Usted es un(a) ENTJ(Comandante)'), nl,
+                writeln('Descripción: Líderes, audaces, imaginativos y de voluntad fuerte, siempre en busca de un camnino, o creando uno...'), nl,
+                writeln('Comandantes Famosos: Steve Jobs, Gordon Ramsay, Jim Carrey'), nl,
+                writeln('Solo el 4% de la población tiene esta personalidad.'),!.
 
-personalidad :- letra(i),letra(n),letra(f),letra(j), diplomaticos,
-                writeln('Usted es un(a) INFJ(Abogado)'),!.
+personalidad :- letra(e),letra(n),letra(t),letra(p), nl, analistas, nl,
+                writeln('Usted es un(a) ENTP(Innovador)'), nl, 
+                writeln('Descripción: Pensadores inteligentes y curiosos que no pueden resistir un reto intelectual..'), nl,
+                writeln('Innovadores Famosos: Mark Twain, Tom Hanks,Thomas Edison'), nl,
+                writeln('Solo el 4.5% de la población tiene esta personalidad.'),!.
 
-personalidad :- letra(i),letra(n),letra(f),letra(p), diplomaticos,
-                writeln('Usted es un(a) INFP(Mediador)'),!.
+personalidad :- letra(i),letra(n),letra(f),letra(j), nl, diplomaticos, nl,
+                writeln('Usted es un(a) INFJ(Abogado)'), nl,
+                writeln('Descripción: Callados y místicos,, que sin embargo son inspiradores e idealistas incansables...'), nl,
+                writeln('Abogados Famosos: Nelson Mandel, Madre Teresa, Martin Luther King'), nl,
+                writeln('Solo el 1% de la población tiene esta personalidad.'),!.
 
-personalidad :- letra(e),letra(n),letra(f),letra(j), diplomaticos,
-                writeln('Usted es un(a) ENFJ(Protagonista)'),!.
+personalidad :- letra(i),letra(n),letra(f),letra(p), nl, diplomaticos, nl,
+                writeln('Usted es un(a) INFP(Mediador)'), nl,
+                writeln('Descripción: Personas poéticas, amables y altruistas, siempre en busca de ayudar a una buena causa...'), nl,
+                writeln('Mediadores Famosos: Willian Shakespeare, Alicia Keys, Jhonny Depp'), nl,
+                writeln('Solo el 2% de la población tiene esta personalidad.'),!.
 
-personalidad :- letra(e),letra(n),letra(f),letra(p), diplomaticos,
-                writeln('Usted es un(a) ENFP(Activista)'),!.
+personalidad :- letra(e),letra(n),letra(f),letra(j), nl, diplomaticos, nl,
+                writeln('Usted es un(a) ENFJ(Protagonista)'), nl,
+                writeln('Descripción: Líderes carismáticos e inspiradores, capaces de cautivar a quienes los escuchan...'), nl,
+                writeln('Protagonistas Famosos: Barack Obama, Ben Affleck, Morpheus'), nl,
+                writeln('Solo el 4% de la población tiene esta personalidad.'),!.
 
-personalidad :- letra(i),letra(s),letra(t),letra(j), centinelas,
-                writeln('Usted es un(a) ISTJ(Logistica)'),!.
+personalidad :- letra(e),letra(n),letra(f),letra(p), nl, diplomaticos, nl,
+                writeln('Usted es un(a) ENFP(Activista)'), nl,
+                writeln('Descripción: Espíritus libres y entusiastas, creativos y sociales, que siempre pueden encontrar una razón para sonreir...'), nl,
+                writeln('Activistas Famosos: Robert Downey, Quentin Tarantino, Robin Williams'), nl,
+                writeln('Solo el 7% de la población tiene esta personalidad.'),!.
 
-personalidad :- letra(i),letra(s),letra(f),letra(j), centinelas,
-                writeln('Usted es un(a) ISFJ(Defensor)'),!.
+personalidad :- letra(i),letra(s),letra(t),letra(j), nl, centinelas, nl,
+                writeln('Usted es un(a) ISTJ(Logistica)'), nl,
+                writeln('Descripción: Individuos prácticos y enfocados a los hechos, de cuya confiabilidad no puede dudarse...'), nl,
+                writeln('Logístas Famosos: Denzel Washington, George Bush, Anthony Hopkins'), nl,
+                writeln('Solo el 8.5% de la población tiene esta personalidad.'),!.
 
-personalidad :- letra(e),letra(s),letra(t),letra(j), centinelas,
-                writeln('Usted es un(a) ESTJ(Ejecutivo)'),!.
+personalidad :- letra(i),letra(s),letra(f),letra(j), nl, centinelas, nl,
+                writeln('Usted es un(a) ISFJ(Defensor)'), nl,
+                writeln('Descripción: Protectores muy dedicados y cálidos, siempre listos para defender a sus seres queridos...'), nl,
+                writeln('Defensores Famosos: Beyonce, Vin Diesel, Reina Elizabeth'), nl,
+                writeln('Solo el 7% de la población tiene esta personalidad.'),!.
 
-personalidad :- letra(e),letra(s),letra(f),letra(j), centinelas,
-                writeln('Usted es un(a) ESFJ(Cónsul)'),!.
+personalidad :- letra(e),letra(s),letra(t),letra(j), nl, centinelas, nl,
+                writeln('Usted es un(a) ESTJ(Ejecutivo)'), nl,
+                writeln('Descripción: Administradores excelentes, inigualables al adiministrar cosas y personas...'), nl,
+                writeln('Ejecutivos Famosos: Frank Sinatra, John Rockefeller, Sonia Sotomayor'), nl,
+                writeln('Solo el 13% de la población tiene esta personalidad.'),!.
 
-personalidad :- letra(i),letra(s),letra(t),letra(p), exploradores,
-                writeln('Usted es un(a) ISTP(Virtuoso)'),!.
+personalidad :- letra(e),letra(s),letra(f),letra(j), nl, centinelas, nl,
+                writeln('Usted es un(a) ESFJ(Cónsul)'), nl,
+                writeln('Descripción: Personas extraordinariamente consideradas, sociables y ppopulares, siempre en busca de ayudar...'), nl,
+                writeln('Cónsul Famosos:'), nl,
+                writeln('Solo el 12% de la población tiene esta personalidad.'),!.
 
-personalidad :- letra(i),letra(s),letra(f),letra(p), exploradores,
-                writeln('Usted es un(a) ISFP(Aventurero)'),!.
+personalidad :- letra(i),letra(s),letra(t),letra(p), nl, exploradores, nl,
+                writeln('Usted es un(a) ISTP(Virtuoso)'), nl,
+                writeln('Descripción: Experimentadores audaces y prácticos, maestros en el uso de todo tipo de herramientas...'), nl,
+                writeln('Solo el 6% de la población tiene esta personalidad.'),!.
 
-personalidad :- letra(e),letra(s),letra(t),letra(p), exploradores,
-                writeln('Usted es un(a) ESTP(Emprendedor)'),!.
+personalidad :- letra(i),letra(s),letra(f),letra(p), nl, exploradores, nl,
+                writeln('Usted es un(a) ISFP(Aventurero)'), nl,
+                writeln('Descripción: Artistas flexibles y encantadores, siempre listos para explorar y experimentar algo nuevo...'), nl,
+                writeln('Solo el 6% de la población tiene esta personalidad.'),!.
 
-personalidad :- letra(e),letra(s),letra(f),letra(p), exploradores,
-                writeln('Usted es un(a) ESFP(Animador)'),!.
+personalidad :- letra(e),letra(s),letra(t),letra(p), nl, exploradores, nl,
+                writeln('Usted es un(a) ESTP(Emprendedor)'), nl,
+                writeln('Descripción: Personas inteligentes, enérgicas y muy perceptivas, que realmente disfrutan vivir al límite...'), nl,
+                writeln('Solo el 10% de la población tiene esta personalidad.'),!.
+
+personalidad :- letra(e),letra(s),letra(f),letra(p), nl, exploradores, nl,
+                writeln('Usted es un(a) ESFP(Animador)'), nl,
+                writeln('Descripción: Animadores espontáneos, enérgicos y entusiastas. La vida nunca es aburrid a su alrededor...'), nl,
+                writeln('Solo el 11% de la población tiene esta personalidad.'),!.
 
 
 imprimir(Lista) :- Lista = [H|C], write(H), nl, imprimir(C).
 
 limpiar :- nl,
-           write("*~* Limpiando memoria de trabajo *~*"),
-           nl,
            retractall(letra(_)),
            retractall(tipologia(_,_)),
            nl,
@@ -284,7 +336,7 @@ limpiar :- nl,
            nl.
 
 main :-
-    writeln('Bienvenido al test de personalidad MBTI'),nl,
+    writeln('*** Bienvenido al test 16 Personalities ***'),nl,
     writeln("Contesta las siguientes preguntas, se honesto con tus respuestas, evita responder a todo neutral."),
     nl,
     intro_extro_questions, sen_int_questions, rac_sen_questions, pe_ju_questions, personalidad, limpiar.
