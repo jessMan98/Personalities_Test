@@ -1,16 +1,10 @@
 :- style_check(-singleton).
 
-% Suma de elementos
+% Suma los elementos de una lista
 sum_elements([], 0).
 sum_elements([X|Xs], S):- sum_elements(Xs, S2), S is S2 + X.
 
-% Numero mayor
-choose([], []). 
-choose(List, Elt) :- 
-     length(List, Length), 
-     random(0, Length, Index), 
-     nth0(Index, List, Elt).
-
+% Obtienes el número mayor
 mayor_que(X,Y,N) :- X > Y, N is X; X < Y, N is Y.
 mayor_que(X,Y,N) :- X == Y, N is X. 
 mayor_que(X,Y,N) :- Y == X, N is Y.
@@ -77,7 +71,7 @@ intro_extro_questions:-
         asserta(tipologia(SUMA2, e)), 
         mayor_que(SUMA,SUMA2, Res), 
 
-        tipologia(Res, T), assertz(letra(T)), writeln(T).
+        tipologia(Res, T), assertz(letra(T)).
 
 sen_int_questions:-
     
@@ -123,7 +117,7 @@ sen_int_questions:-
     LN = [WN,XN,YN,ZN], sum_elements(LN,SUMA4), check(SUMA4),
         asserta(tipologia(SUMA4,n)), mayor_que(SUMA3,SUMA4, Rsn),
 
-        tipologia(Rsn, T), assertz(letra(T)), writeln(T).
+        tipologia(Rsn, T), assertz(letra(T)).
 
 rac_sen_questions :-
     
@@ -169,7 +163,7 @@ rac_sen_questions :-
     LSE = [WSE,XSE,YSE,ZSE], sum_elements(LSE, SUMA6), check(SUMA6),
         asserta(tipologia(SUMA6,f)), mayor_que(SUMA5,SUMA6, Rrf),
 
-        tipologia(Rrf, T), assertz(letra(T)), writeln(T).
+        tipologia(Rrf, T), assertz(letra(T)).
 
 pe_ju_questions :- 
     
@@ -215,11 +209,12 @@ pe_ju_questions :-
     LJ = [WJ,XJ,YJ,ZJ], sum_elements(LJ,SUMA8), check(SUMA8),
         asserta(tipologia(SUMA8,j)), mayor_que(SUMA7,SUMA8, Rpj),
 
-        tipologia(Rpj, T), assertz(letra(T)), writeln(T).
+        tipologia(Rpj, T), assertz(letra(T)).
 
 % Grupos de personalidad
 
-analistas :- ( ( letra(i),letra(n),letra(t),letra(j) ; letra(i),letra(n),letra(t),letra(p) ) ; ( letra(e),letra(n),letra(t),letra(j) ; letra(e),letra(n),letra(t),letra(p) ) ),
+analistas :- ( ( letra(i),letra(n),letra(t),letra(j) ; letra(i),letra(n),letra(t),letra(p) ) ; 
+               ( letra(e),letra(n),letra(t),letra(j) ; letra(e),letra(n),letra(t),letra(p) ) ),
              (writeln('Perteneces al grupo de los ** Analistas **')).
 
 diplomaticos :- ( ( letra(i),letra(n),letra(f),letra(j) ; letra(i),letra(n),letra(f),letra(p) ) ; ( letra(e),letra(n),letra(f),letra(j) ; letra(e),letra(n),letra(f),letra(p) ) ),
@@ -329,9 +324,7 @@ personalidad :- letra(e),letra(s),letra(f),letra(p), nl, exploradores, nl,
                 writeln('Animadores Famosos: Elton john, Marilin Monroe, Adele'), nl,
                 writeln('Solo el 11% de la población tiene esta personalidad.'),!.
 
-
-imprimir(Lista) :- Lista = [H|C], write(H), nl, imprimir(C).
-
+% Elimina los predicados dinamicos.
 limpiar :- nl,
            retractall(letra(_)),
            retractall(tipologia(_,_)),
@@ -339,6 +332,7 @@ limpiar :- nl,
            write("*~* Memoria limpia *~*"),
            nl.
 
+% Ejecución principal
 main :-
     writeln('*** Bienvenido al test 16 Personalities ***'),nl,
     writeln("Contesta las siguientes preguntas, se honesto con tus respuestas, evita responder a todo neutral."),
