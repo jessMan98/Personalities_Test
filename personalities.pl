@@ -234,97 +234,129 @@ exploradores :- ( ( letra(i),letra(s),letra(t),letra(p) ; letra(i),letra(s),letr
 personalidad :- letra(i),letra(n),letra(t),letra(j), nl, analistas, nl,
                 writeln(' *** Usted es un(a) INTJ(Arquitecto) ***'), nl,
                 writeln('Descripción: Pensadores, imaginativos y estratégicos, con un plan para todo...'), nl,
-                writeln('Arquitectos Famosos: Friedrich Nietzsche, Michelle Obama, Elon Musk'), nl,
+                writeln('Fortalezas: Racional, Informado(a), Independiente, Determinado(a), Curioso(a), Versátil.'), nl,
+                writeln('Debilidades: Arrogante, Demasiado Crítico(a), Combativo(a), Románticamente Despistado(a).'), nl,
+                writeln('Arquitectos Famosos: Friedrich Nietzsche, Michelle Obama, Elon Musk.'), nl,
                 writeln('Solo el 1.5% de la población tiene esta personalidad.'), nl,!.
 
 personalidad :- letra(i),letra(n),letra(t),letra(p), nl, analistas, nl,
                 writeln('Usted es un(a) INTP(Lógico)'), nl,
                 writeln('Descripción: Inventores, innovadores con una sed insaciable de conocimiento...'), nl,
-                writeln('Lógicos Famosos: Bill Gates, Albert Einstein, Isaac Newton'), nl,
+                writeln('Fortalezas: Analítico(a), Original, Mente Abierta, Curioso(a), Objetivo(a)'), nl,
+                writeln('Debilidades: Desconectado(a), Insensible, Insatisfecho(a), Impaciente, Perfeccionista.'), nl,
+                writeln('Lógicos Famosos: Bill Gates, Albert Einstein, Isaac Newton.'), nl,
                 writeln('Solo el 2.5% de la población tiene esta personalidad.'),!.
 
 personalidad :- letra(e),letra(n),letra(t),letra(j), nl, analistas, nl,
                 writeln('Usted es un(a) ENTJ(Comandante)'), nl,
                 writeln('Descripción: Líderes, audaces, imaginativos y de voluntad fuerte, siempre en busca de un camnino, o creando uno...'), nl,
-                writeln('Comandantes Famosos: Steve Jobs, Gordon Ramsay, Jim Carrey'), nl,
+                writeln('Fortalezas: Eficiente, Enérgico(a), Seguro(a) de sí mismo, Carismático(a), De voluntad fuerte.'), nl,
+                writeln('Debilidades: Intolerante, Impaciente, Arrogante, Fríos y despiadados, Mal manejo de emociones, Obstinado(a) y dominante.'), nl,
+                writeln('Comandantes Famosos: Steve Jobs, Gordon Ramsay, Jim Carrey.'), nl,
                 writeln('Solo el 4% de la población tiene esta personalidad.'),!.
 
 personalidad :- letra(e),letra(n),letra(t),letra(p), nl, analistas, nl,
                 writeln('Usted es un(a) ENTP(Innovador)'), nl, 
-                writeln('Descripción: Pensadores inteligentes y curiosos que no pueden resistir un reto intelectual..'), nl,
-                writeln('Innovadores Famosos: Mark Twain, Tom Hanks,Thomas Edison'), nl,
+                writeln('Descripción: Pensadores inteligentes y curiosos que no pueden resistir un reto intelectual..'), nl, 
+                writeln('Fortalezas: Conocedor(a), Original, Pensadores rápidos, Carismático, Enérgico.'), nl,
+                writeln('Debilidades: Insensible, Intolerante, Muy argumentativo.'), nl,
+                writeln('Innovadores Famosos: Mark Twain, Tom Hanks,Thomas Edison.'), nl,
                 writeln('Solo el 4.5% de la población tiene esta personalidad.'),!.
 
 personalidad :- letra(i),letra(n),letra(f),letra(j), nl, diplomaticos, nl,
                 writeln('Usted es un(a) INFJ(Abogado)'), nl,
                 writeln('Descripción: Callados y místicos,, que sin embargo son inspiradores e idealistas incansables...'), nl,
-                writeln('Abogados Famosos: Nelson Mandela, Madre Teresa, Martin Luther King'), nl,
+                writeln('Fortalezas: Creativo(a), Perspicaz, Apasionado(a), Altruista.'), nl,
+                writeln('Debilidades: Sensible a las críticas, Perfeccionista, Evita lo ordinario, Reacios a abrirse.'), nl,
+                writeln('Abogados Famosos: Nelson Mandela, Madre Teresa, Martin Luther King.'), nl,
                 writeln('Solo el 1% de la población tiene esta personalidad.'),!.
 
 personalidad :- letra(i),letra(n),letra(f),letra(p), nl, diplomaticos, nl,
                 writeln('Usted es un(a) INFP(Mediador)'), nl,
                 writeln('Descripción: Personas poéticas, amables y altruistas, siempre en busca de ayudar a una buena causa...'), nl,
-                writeln('Mediadores Famosos: Willian Shakespeare, Alicia Keys, Jhonny Depp'), nl,
+                writeln('Fortalezas: Empático(a), Generoso(a), Mente abierta, Creativo(a), Apasionado(a), Idealista.'), nl,
+                writeln('Debilidades: Poco realista, Desenfocado(a), Emocionalmente vulnerable, Autocríticos.'), nl,
+                writeln('Mediadores Famosos: Willian Shakespeare, Alicia Keys, Jhonny Depp.'), nl,
                 writeln('Solo el 2% de la población tiene esta personalidad.'),!.
 
 personalidad :- letra(e),letra(n),letra(f),letra(j), nl, diplomaticos, nl,
                 writeln('Usted es un(a) ENFJ(Protagonista)'), nl,
                 writeln('Descripción: Líderes carismáticos e inspiradores, capaces de cautivar a quienes los escuchan...'), nl,
-                writeln('Protagonistas Famosos: Barack Obama, Ben Affleck, Morpheus'), nl,
+                writeln('Fortalezas: Receptivo(a), Confiable, Apasionado(a), Altruista, Carismático.'), nl,
+                writeln('Debilidades: Irrealista, Demasiado idealista, Condescendiente, Intenso, Demasiado empático(a).'), nl,
+                writeln('Protagonistas Famosos: Barack Obama, Ben Affleck, Morpheus.'), nl,
                 writeln('Solo el 4% de la población tiene esta personalidad.'),!.
 
 personalidad :- letra(e),letra(n),letra(f),letra(p), nl, diplomaticos, nl,
                 writeln('Usted es un(a) ENFP(Activista)'), nl,
                 writeln('Descripción: Espíritus libres y entusiastas, creativos y sociales, que siempre pueden encontrar una razón para sonreir...'), nl,
-                writeln('Activistas Famosos: Robert Downey, Quentin Tarantino, Robin Williams'), nl,
+                writeln('Fortalezas: Curioso(a), Perceptivo(a), Entusiasta, De buen carácter, Excelentes comunicadores.'), nl,
+                writeln('Debilidades: Desenfocado(a), Desorganizado, Demasiado optimista, Inquietos,'), nl,
+                writeln('Activistas Famosos: Robert Downey, Quentin Tarantino, Robin Williams.'), nl,
                 writeln('Solo el 7% de la población tiene esta personalidad.'),!.
 
 personalidad :- letra(i),letra(s),letra(t),letra(j), nl, centinelas, nl,
                 writeln('Usted es un(a) ISTJ(Logistica)'), nl,
                 writeln('Descripción: Individuos prácticos y enfocados a los hechos, de cuya confiabilidad no puede dudarse...'), nl,
-                writeln('Logístas Famosos: Denzel Washington, George Bush, Anthony Hopkins'), nl,
+                writeln('Fortalezas: Honesto y directo, Muy Responsable, Tranquilo(a) y práctico, De voluntad fuerte y obediente.'), nl,
+                writeln('Debilidades: Obstinado(a), Insensible, Juiciosos, A menudo se culpan a sí mismos,'), nl,
+                writeln('Logístas Famosos: Denzel Washington, George Bush, Anthony Hopkins.'), nl,
                 writeln('Solo el 8.5% de la población tiene esta personalidad.'),!.
 
 personalidad :- letra(i),letra(s),letra(f),letra(j), nl, centinelas, nl,
                 writeln('Usted es un(a) ISFJ(Defensor)'), nl,
                 writeln('Descripción: Protectores muy dedicados y cálidos, siempre listos para defender a sus seres queridos...'), nl,
-                writeln('Defensores Famosos: Beyonce, Vin Diesel, Reina Elizabeth'), nl,
+                writeln('Fortalezas: Apoyo, Confiables y pacientes, Entusiasta, Leal y trabajador, Imaginativo y Observador.'), nl,
+                writeln('Debilidades: Humilde y tímido, Reprime sus sentimientos, Se toma las cosas demasiado personal, Reacios al cambio.'), nl,
+                writeln('Defensores Famosos: Beyonce, Vin Diesel, Reina Elizabeth.'), nl,
                 writeln('Solo el 7% de la población tiene esta personalidad.'),!.
 
 personalidad :- letra(e),letra(s),letra(t),letra(j), nl, centinelas, nl,
                 writeln('Usted es un(a) ESTJ(Ejecutivo)'), nl,
                 writeln('Descripción: Administradores excelentes, inigualables al adiministrar cosas y personas...'), nl,
-                writeln('Ejecutivos Famosos: Frank Sinatra, John Rockefeller, Sonia Sotomayor'), nl,
+                writeln('Fortalezas: Dedicado(a), De voluntad fuerte, Directo y honesto, Leal, paciente y confiable, Excelentes organizadores.'), nl,
+                writeln('Debilidades: Inflexible y Obstinado, Demasiado concentrado en el status social, Difícil de relajarse.'), nl,
+                writeln('Ejecutivos Famosos: Frank Sinatra, John Rockefeller, Sonia Sotomayor.'), nl,
                 writeln('Solo el 13% de la población tiene esta personalidad.'),!.
 
 personalidad :- letra(e),letra(s),letra(f),letra(j), nl, centinelas, nl,
                 writeln('Usted es un(a) ESFJ(Cónsul)'), nl,
                 writeln('Descripción: Personas extraordinariamente consideradas, sociables y ppopulares, siempre en busca de ayudar...'), nl,
-                writeln('Cónsules Famosos: Bill Clinton, Taylor Swift, Steve Harvey'), nl,
+                writeln('Fortalezas: Fuertes habilidades prácticas, Muy leal, Sensible y cálido, Bueno para conectarse con los demás.'), nl,
+                writeln('Debilidades: Inflexibles, Vulnerables a críticas, Demasiado desinteresado, A menudo demasiado necesitado.'), nl,
+                writeln('Cónsules Famosos: Bill Clinton, Taylor Swift, Steve Harvey.'), nl,
                 writeln('Solo el 12% de la población tiene esta personalidad.'),!.
 
 personalidad :- letra(i),letra(s),letra(t),letra(p), nl, exploradores, nl,
                 writeln('Usted es un(a) ISTP(Virtuoso)'), nl,
                 writeln('Descripción: Experimentadores audaces y prácticos, maestros en el uso de todo tipo de herramientas...'), nl,
-                writeln('Virtuosos Famosos: Michael Jordan, Clint Eastwood, Tom Cruise'), nl,
+                writeln('Fortalezas: Optimista y Enérgico, Creativo y práctico, Espontáneo y racional, Genial en una crisis, Relajado(a).'), nl,
+                writeln('Debilidades: Obstinado(a), Privado(a) y Reservado(a), Se aburre fácilmente, No le gusta el compromiso.'), nl,
+                writeln('Virtuosos Famosos: Michael Jordan, Clint Eastwood, Tom Cruise.'), nl,
                 writeln('Solo el 6% de la población tiene esta personalidad.'),!.
 
 personalidad :- letra(i),letra(s),letra(f),letra(p), nl, exploradores, nl,
                 writeln('Usted es un(a) ISFP(Aventurero)'), nl,
                 writeln('Descripción: Artistas flexibles y encantadores, siempre listos para explorar y experimentar algo nuevo...'), nl,
-                writeln('Aventureros Famosos: Lana del Rey, Frida Kahlo, Michael Jackson'), nl,
+                writeln('Fortalezas: Encantador, Sensible a los demás, Imaginatuvo(a), Apasionado(a), Curioso(a), Artístico(a).'), nl,
+                writeln('Debilidades: Impredecible, Fácilmente estresado(a), Demasiado competitivo(a).'), nl,
+                writeln('Aventureros Famosos: Lana del Rey, Frida Kahlo, Michael Jackson.'), nl,
                 writeln('Solo el 6% de la población tiene esta personalidad.'),!.
 
 personalidad :- letra(e),letra(s),letra(t),letra(p), nl, exploradores, nl,
                 writeln('Usted es un(a) ESTP(Emprendedor)'), nl,
                 writeln('Descripción: Personas inteligentes, enérgicas y muy perceptivas, que realmente disfrutan vivir al límite...'), nl,
-                writeln('Emprendedores Famosos: Jack Nicholson, Ernest Hemingway, Bruce Willis'), nl,
+                writeln('Fortalezas: Audaz, Original, Perceptivo(a), Directo(a), Sociable.'), nl,
+                writeln('Debilidades: Insensible, Impaciente, NO estucturado, Propenso al riesgo. '), nl,
+                writeln('Emprendedores Famosos: Jack Nicholson, Ernest Hemingway, Bruce Willis.'), nl,
                 writeln('Solo el 10% de la población tiene esta personalidad.'),!.
 
 personalidad :- letra(e),letra(s),letra(f),letra(p), nl, exploradores, nl,
                 writeln('Usted es un(a) ESFP(Animador)'), nl,
                 writeln('Descripción: Animadores espontáneos, enérgicos y entusiastas. La vida nunca es aburrid a su alrededor...'), nl,
-                writeln('Animadores Famosos: Elton john, Marilin Monroe, Adele'), nl,
+                writeln('Fortalezas: Audaz, Original, Práctico(a), Observador(a), Excelentes habilidades con las personas.'), nl,
+                writeln('Debilidades: Sensible, Se aburre fácilmente, Aversión al conflicto, Desenfocado(a)'), nl,
+                writeln('Animadores Famosos: Elton john, Marilin Monroe, Adele.'), nl,
                 writeln('Solo el 11% de la población tiene esta personalidad.'),!.
 
 % Elimina los predicados dinamicos.
